@@ -88,6 +88,11 @@ app.post("/submit", async (req, res) => {
   }
 });
 
-app.listen(process.env.PORT || port, () => {
-  console.log("server is live on port " + port);
-});
+// Export the app for Vercel
+export default app;
+
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(port, () => {
+    console.log("server is live on port " + port);
+  });
+}
