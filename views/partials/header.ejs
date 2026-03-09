@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/header.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>Karthik</title>
+</head>
+<body>
+
+<!-- Opening Animation Overlay -->
+<div class="splash-screen" id="splashScreen">
+    <div class="splash-content">
+        <h1 class="splash-text">Hi I am Karthik</h1>
+    </div>
+</div>
+
+<script>
+    // Check if the user just refreshed the page
+    const navEntries = performance.getEntriesByType("navigation");
+    const isReload = navEntries.length > 0 && navEntries[0].type === "reload";
+
+    if (!sessionStorage.getItem('splashShown') || isReload) {
+        // First time visit or refresh: play the animation
+        sessionStorage.setItem('splashShown', 'true');
+    } else {
+        // Navigating via links: hide the splash screen immediately
+        const splash = document.getElementById('splashScreen');
+        if (splash) splash.style.display = 'none';
+        document.body.style.animation = 'none';
+        document.body.style.overflow = 'visible';
+    }
+</script>
+
+<header>
+
+    <nav>
+        <div class="navdiv">
+        <div class="title-container"><div class="heading"><span class="nav-typing">My Portfolio</span></div></div>
+         <div class="links"><a href="#home"><p><img src="/images/home_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg"></p></a>
+        <a href="#about"><p><img src="/images/data_loss_prevention_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg"></p></a>
+        <a href="#contact"><p><img src="/images/contacts_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg"></p></a>
+    </div>
+
+        </div>
+    </nav>
+</header>
+
+<main>
+    

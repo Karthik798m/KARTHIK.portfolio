@@ -1,0 +1,178 @@
+<%-include("partials/header.ejs")%>
+
+<section id="home">
+  <div class="homecontent">
+    <h1 class="welcome-text">Hi, I'm Karthik</h1>
+    <div class="typing-container">
+      <h2>provides <span class="typing-text" data-text='["front end.", "backend.", "database."]'></span><span
+          class="cursor">|</span></h2>
+    </div>
+    <p>
+      I specialize in creating modern, responsive, and high-performance digital architectures. From crafting elegant user interfaces that engage visitors, to engineering robust backend systems that power applications securely, I deliver complete end-to-end solutions. Let me help you turn your next big idea into reality.
+    </p>
+  </div>
+</section>
+
+<section id="about">
+  <div class="homecontent">
+    <h1>About Me</h1>
+    <p>
+      Hello! I'm Karthik, a passionate <strong>Full Stack Developer</strong> dedicated to building robust, scalable, and visually compelling web applications. I bridge the gap between elegant frontend interfaces and powerful backend architectures.
+    </p>
+    <p>
+      My expertise spans across modern JavaScript frameworks, responsive CSS design, and server-side technologies like Node.js and SQL databases. Whether I'm designing an intuitive user experience or optimizing complex server logic, I thrive on transforming ideas into seamless digital solutions. I am constantly learning and adapting to new technologies to stay at the forefront of the ever-evolving tech landscape.
+    </p>
+   </div>
+</section>
+
+<section id="contact">
+  <form id="contactForm">
+      <div class="feedback">
+        <div id="formStatus" class="success-message" style="display: none;">✅ Message sent successfully!</div>
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="text" name="email" placeholder="@Email" required>
+        <input type="text" name="content" placeholder="content" class="content" required>
+        <button type="submit" class="submit">Submit</button>
+      </div>
+  </form>
+</section>
+
+<script>
+  // Home Typing Effect
+  const textElement = document.querySelector('.typing-text');
+  if (textElement) {
+    const words = JSON.parse(textElement.getAttribute('data-text'));
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function typeEffect() {
+      const currentWord = words[wordIndex];
+      if (isDeleting) {
+        textElement.textContent = currentWord.substring(0, charIndex - 1);
+        charIndex--;
+      } else {
+        textElement.textContent = currentWord.substring(0, charIndex + 1);
+        charIndex++;
+      }
+
+      let typeSpeed = 100;
+      if (isDeleting) typeSpeed /= 2;
+
+      if (!isDeleting && charIndex === currentWord.length) {
+        typeSpeed = 2000; // Wait before deleting
+        isDeleting = true;
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+        typeSpeed = 500; // Wait before typing next word
+      }
+
+      setTimeout(typeEffect, typeSpeed);
+    }
+    
+    setTimeout(typeEffect, 800);
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+
+    // Intersection Observer for scroll reveal and active nav links
+    const observerOptions = {
+      threshold: 0.3
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('reveal');
+          
+          // Update active link in navbar
+          const id = entry.target.getAttribute('id');
+          document.querySelectorAll('.links a').forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+          });
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('section').forEach(section => {
+      observer.observe(section);
+    });
+
+    // Re-trigger animation on nav click and handle scroll
+    document.querySelectorAll('.links a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href').substring(1);
+        const targetSection = document.getElementById(targetId);
+        
+        if (targetSection) {
+          // Smooth scroll to section
+          targetSection.scrollIntoView({ behavior: 'smooth' });
+          
+          // Re-trigger animation
+          targetSection.classList.remove('reveal');
+          setTimeout(() => {
+            targetSection.classList.add('reveal');
+          }, 10);
+          
+          // Update URL hash without jumping
+          history.pushState(null, null, '#' + targetId);
+
+          // Manually update active class
+          document.querySelectorAll('.links a').forEach(l => l.classList.remove('active'));
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // AJAX Form Submission
+    const contactForm = document.getElementById('contactForm');
+    const formStatus = document.getElementById('formStatus');
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+
+    if (contactForm) {
+      contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        // Disable button while sending
+        const originalBtnText = submitBtn.textContent;
+        submitBtn.textContent = "Sending...";
+        submitBtn.disabled = true;
+
+        const formData = new URLSearchParams(new FormData(contactForm));
+
+        try {
+          const response = await fetch('/submit', {
+            method: 'POST',
+            body: formData,
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded'
+            }
+          });
+
+          if (response.ok) {
+            // Show success message
+            formStatus.style.display = 'block';
+            contactForm.reset();
+            
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+              formStatus.style.display = 'none';
+            }, 5000);
+          } else {
+            alert("Something went wrong. Please try again later.");
+          }
+        } catch (error) {
+          console.error("Form error:", error);
+          alert("Could not reach the server.");
+        } finally {
+          submitBtn.textContent = originalBtnText;
+          submitBtn.disabled = false;
+        }
+      });
+    }
+  });
+</script>
+
+<%-include("partials/footer.ejs")%>
