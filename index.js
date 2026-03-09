@@ -1,11 +1,9 @@
 import express from "express";
 import bodyParser from "body-parser";
 import nodemailer from "nodemailer"
-import pkg from "pg";
 import path from "path";
 import { fileURLToPath } from "url";
 import "dotenv/config";
-const { Pool } = pkg;
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -17,13 +15,6 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
 app.use(bodyParser.urlencoded({ extended: true }));
-
-const db = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false
-  }
-});
 
 app.get("/", (req, res) => {
   res.render("index.ejs", { success: false });
@@ -54,12 +45,6 @@ app.post("/submit", async (req, res) => {
   console.log("Submit route hit with:", { name, mail, cont });
 
   try {
-    console.log("Attempting database insert...");
-    await db.query(
-      "INSERT INTO msg (name, mail, text) VALUES ($1, $2, $3)",
-      [name, mail, cont]
-    );
-
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
