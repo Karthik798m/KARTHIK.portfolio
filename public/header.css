@@ -39,10 +39,10 @@ body {
     width: 100vw;
     height: 100vh;
     z-index: -1;
-    perspective: 1000px;
+    perspective: 1500px;
     overflow: hidden;
     pointer-events: none;
-    opacity: 0.4;
+    opacity: 0.3;
 }
 
 .pentagon-container {
@@ -52,37 +52,58 @@ body {
     justify-content: center;
     align-items: center;
     transform-style: preserve-3d;
-    animation: rotate3D 20s linear infinite;
+    animation: rotate3D 25s linear infinite;
 }
 
 .pentagon {
     position: relative;
-    width: 300px;
-    height: 300px;
+    width: 400px;
+    height: 400px;
     transform-style: preserve-3d;
 }
 
 .side {
     position: absolute;
-    width: 200px;
+    width: 235px; /* Side length for a pentagon in a 400x400 box */
     height: 2px;
     background: var(--accent-light-blue);
     box-shadow: 0 0 15px var(--accent-blue);
     top: 50%;
     left: 50%;
-    transform-origin: 0 0;
+    transform-origin: 0% 50%;
 }
 
-/* Creating the pentagon edges */
-.s1 { transform: rotate(0deg) translate(-100px, 0); }
-.s2 { transform: rotate(72deg) translate(-100px, 0); }
-.s3 { transform: rotate(144deg) translate(-100px, 0); }
-.s4 { transform: rotate(216deg) translate(-100px, 0); }
-.s5 { transform: rotate(288deg) translate(-100px, 0); }
+/* Creating a proper closed pentagon wireframe */
+.s1 { transform: rotate(-90deg) translate(0, -161px) rotate(18deg); }
+.s2 { transform: rotate(-18deg) translate(0, -161px) rotate(18deg); }
+.s3 { transform: rotate(54deg) translate(0, -161px) rotate(18deg); }
+.s4 { transform: rotate(126deg) translate(0, -161px) rotate(18deg); }
+.s5 { transform: rotate(198deg) translate(0, -161px) rotate(18deg); }
 
 @keyframes rotate3D {
     0% { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
-    100% { transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg); }
+    100% { transform: rotateX(360deg) rotateY(720deg) rotateZ(360deg); }
+}
+
+/* Overscroll Glow Effects - Restored */
+body::before, body::after {
+    content: '';
+    position: fixed;
+    left: 0;
+    right: 0;
+    height: 20vh;
+    pointer-events: none;
+    z-index: 1001; /* Above almost everything but below splash? */
+}
+
+body::before {
+    top: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(0, 113, 227, 0.2) 0%, transparent 80%);
+}
+
+body::after {
+    bottom: 0;
+    background: radial-gradient(ellipse at 50% 100%, rgba(0, 113, 227, 0.2) 0%, transparent 80%);
 }
 
 /* Elegant Navbar */
