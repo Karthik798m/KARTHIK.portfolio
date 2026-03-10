@@ -13,7 +13,8 @@
     --transition-premium: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-html, body {
+html,
+body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
     background: linear-gradient(to top, transparent, black);
@@ -42,7 +43,8 @@ body {
     perspective: 1500px;
     overflow: hidden;
     pointer-events: none;
-    opacity: 0.9; /* Near full opacity for maximum visibility */
+    opacity: 0.9;
+    /* Near full opacity for maximum visibility */
 }
 
 .pentagon-container {
@@ -64,39 +66,144 @@ body {
 
 .side {
     position: absolute;
-    width: 235px; /* Side length for a pentagon in a 400x400 box */
-    height: 6px; /* Thickened to 6px for prominence */
-    background: #fff; /* White core for better glow contrast */
-    box-shadow: 
+    width: 235px;
+    /* Side length for a pentagon in a 400x400 box */
+    height: 6px;
+    /* Thickened to 6px for prominence */
+    background: #fff;
+    /* White core for better glow contrast */
+    box-shadow:
         0 0 10px #fff,
         0 0 20px var(--accent-light-blue),
-        0 0 40px var(--accent-blue); /* Triple-layered bloom glow */
+        0 0 40px var(--accent-blue);
+    /* Triple-layered bloom glow */
     top: 50%;
     left: 50%;
     transform-origin: 0% 50%;
 }
 
 /* Creating a proper closed pentagon wireframe */
-.s1 { transform: rotate(-90deg) translate(0, -161px) rotate(18deg); }
-.s2 { transform: rotate(-18deg) translate(0, -161px) rotate(18deg); }
-.s3 { transform: rotate(54deg) translate(0, -161px) rotate(18deg); }
-.s4 { transform: rotate(126deg) translate(0, -161px) rotate(18deg); }
-.s5 { transform: rotate(198deg) translate(0, -161px) rotate(18deg); }
+.s1 {
+    transform: rotate(-90deg) translate(0, -161px) rotate(18deg);
+}
+
+.s2 {
+    transform: rotate(-18deg) translate(0, -161px) rotate(18deg);
+}
+
+.s3 {
+    transform: rotate(54deg) translate(0, -161px) rotate(18deg);
+}
+
+.s4 {
+    transform: rotate(126deg) translate(0, -161px) rotate(18deg);
+}
+
+.s5 {
+    transform: rotate(198deg) translate(0, -161px) rotate(18deg);
+}
 
 @keyframes rotate3D {
-    0% { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
-    100% { transform: rotateX(360deg) rotateY(720deg) rotateZ(360deg); }
+    0% {
+        transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    }
+
+    100% {
+        transform: rotateX(360deg) rotateY(720deg) rotateZ(360deg);
+    }
+}
+
+/* Floating Icons Styling */
+.floating-icons {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.float-icon {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    opacity: 0.2;
+    filter: drop-shadow(0 0 15px var(--accent-blue));
+    animation: drift 15s ease-in-out infinite alternate;
+    color: var(--text-primary);
+    transition: var(--transition-premium);
+}
+
+/* Individual Icon Positions & Delays */
+.i-js {
+    top: 15%;
+    left: 10%;
+    animation-duration: 22s;
+}
+
+.i-html {
+    top: 40%;
+    left: 5%;
+    animation-duration: 18s;
+    animation-delay: -5s;
+}
+
+.i-css {
+    top: 75%;
+    left: 12%;
+    animation-duration: 25s;
+    animation-delay: -2s;
+}
+
+.i-react {
+    top: 20%;
+    right: 8%;
+    animation-duration: 20s;
+    animation-delay: -7s;
+}
+
+.i-db {
+    top: 65%;
+    right: 10%;
+    animation-duration: 24s;
+    animation-delay: -4s;
+}
+
+@keyframes drift {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    33% {
+        transform: translate(30px, 50px) rotate(10deg);
+    }
+
+    66% {
+        transform: translate(-20px, 80px) rotate(-15deg);
+    }
+
+    100% {
+        transform: translate(10px, -20px) rotate(5deg);
+    }
+}
+
+/* Hide floating icons on mobile for cleaner look */
+@media (max-width: 1024px) {
+    .floating-icons {
+        display: none;
+    }
 }
 
 /* Overscroll Glow Effects - Restored */
-body::before, body::after {
+body::before,
+body::after {
     content: '';
     position: fixed;
     left: 0;
     right: 0;
     height: 20vh;
     pointer-events: none;
-    z-index: 999; /* Below navbar (1000) but above content */
+    z-index: 999;
+    /* Below navbar (1000) but above content */
 }
 
 body::before {
@@ -133,8 +240,15 @@ body::after {
 }
 
 @keyframes slideDownNav {
-    from { opacity: 0; transform: translateX(-50%) translateY(-20px); }
-    to { opacity: 1; transform: translateX(-50%) translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
 }
 
 .title-container {
@@ -159,8 +273,27 @@ body::after {
     animation: typing 2.5s steps(15, end), blink 0.75s step-end infinite;
 }
 
-@keyframes typing { from { width: 0 } to { width: 140px } }
-@keyframes blink { from, to { border-color: transparent } 50% { border-color: var(--accent-light-blue) } }
+@keyframes typing {
+    from {
+        width: 0
+    }
+
+    to {
+        width: 140px
+    }
+}
+
+@keyframes blink {
+
+    from,
+    to {
+        border-color: transparent
+    }
+
+    50% {
+        border-color: var(--accent-light-blue)
+    }
+}
 
 .links {
     display: flex;
@@ -183,7 +316,8 @@ body::after {
     transition: var(--transition-premium);
 }
 
-.links a:hover, .links a.active {
+.links a:hover,
+.links a.active {
     opacity: 1;
     transform: translateY(-2px);
 }
@@ -202,7 +336,8 @@ section {
     box-sizing: border-box;
 }
 
-.homecontent, .feedback {
+.homecontent,
+.feedback {
     background: var(--glass-bg);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
@@ -220,7 +355,8 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px; /* Unified vertical gap */
+    gap: 15px;
+    /* Unified vertical gap */
 }
 
 .section-title {
@@ -250,7 +386,8 @@ section {
     flex: 1;
 }
 
-.reveal .homecontent, .reveal .feedback {
+.reveal .homecontent,
+.reveal .feedback {
     opacity: 1;
     transform: translateY(0);
 }
@@ -282,11 +419,14 @@ section {
     justify-content: center;
 }
 
-input, textarea {
+input,
+textarea {
     width: 100%;
-    max-width: 500px; /* Matched with input-group */
+    max-width: 500px;
+    /* Matched with input-group */
     padding: 16px 24px;
-    margin: 0; /* Let gap handle spacing */
+    margin: 0;
+    /* Let gap handle spacing */
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 18px;
@@ -297,21 +437,25 @@ input, textarea {
     outline: none;
     text-align: center;
     resize: none;
-    box-sizing: border-box; /* Ensure padding doesn't affect width */
+    box-sizing: border-box;
+    /* Ensure padding doesn't affect width */
 }
 
-input::placeholder, textarea::placeholder {
+input::placeholder,
+textarea::placeholder {
     color: rgba(255, 255, 255, 0.6);
 }
 
-input:focus, textarea:focus {
+input:focus,
+textarea:focus {
     background: rgba(255, 255, 255, 0.07);
     border-color: var(--accent-blue);
     box-shadow: 0 0 20px rgba(0, 113, 227, 0.2);
 }
 
 button {
-    margin-top: 15px; /* Adjusted since gap is 15px */
+    margin-top: 15px;
+    /* Adjusted since gap is 15px */
     padding: 14px 40px;
     border-radius: 18px;
     border: none;
@@ -363,14 +507,16 @@ button:hover {
         font-size: 2.2rem;
     }
 
-    .homecontent, .feedback {
+    .homecontent,
+    .feedback {
         padding: 40px 25px;
         width: 90%;
     }
 
     .input-group {
         flex-direction: column;
-        gap: 15px; /* Vertical gap for mobile */
+        gap: 15px;
+        /* Vertical gap for mobile */
     }
 
     .section-title {
@@ -404,8 +550,24 @@ button:hover {
     animation: scaleUp 2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@keyframes fadeOut { to { opacity: 0; visibility: hidden; } }
-@keyframes scaleUp { from { scale: 0.8; opacity: 0; } to { scale: 1; opacity: 1; } }
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@keyframes scaleUp {
+    from {
+        scale: 0.8;
+        opacity: 0;
+    }
+
+    to {
+        scale: 1;
+        opacity: 1;
+    }
+}
 
 /* Footer */
 .navdiv2 {

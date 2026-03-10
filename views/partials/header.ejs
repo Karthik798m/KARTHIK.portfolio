@@ -1,66 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/header.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <title>Karthik</title>
 </head>
+
 <body>
-    
-<!-- 3D Background Animation Container -->
-<div class="background-animation">
-    <div class="pentagon-container">
-        <div class="pentagon">
-            <div class="side s1"></div>
-            <div class="side s2"></div>
-            <div class="side s3"></div>
-            <div class="side s4"></div>
-            <div class="side s5"></div>
+
+    <!-- 3D Background Animation Container -->
+    <div class="background-animation">
+        <div class="floating-icons">
+            <!-- JS Icon -->
+            <div class="float-icon i-js">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M3,3H21V21H3V3M7.73,18.04C8.21,18.83 8.78,19.42 10.26,19.42C11.62,19.42 12.5,18.73 12.5,17.63C12.5,16.7 11.78,16.27 10.65,15.77C9.39,15.22 7.97,14.85 7.97,12.91C7.97,11.36 9.22,10.29 10.82,10.29C12.18,10.29 13.03,10.81 13.67,11.96L11.72,13.13C11.33,12.45 10.87,12.19 10.2,12.19C9.59,12.19 9.14,12.54 9.14,13.05C9.14,13.56 9.5,13.8 10.37,14.19C11.89,14.87 13.73,15.42 13.73,17.58C13.73,19.45 12.22,20.69 10.24,20.69C8.4,20.69 7.35,19.81 6.67,18.77L7.73,18.04M15.1,10.42H17.29V17.58C17.29,18.65 16.65,19.39 15.65,19.39C15.19,19.39 14.81,19.21 14.5,19.07L15.06,17.43C15.23,17.5 15.37,17.58 15.53,17.58C15.86,17.58 16.03,17.3 16.03,16.89V10.42Z" />
+                </svg>
+            </div>
+            <!-- HTML Icon -->
+            <div class="float-icon i-html">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12,2L4.5,20.29L5.21,21L12,18L18.79,21L19.5,20.29L12,2Z" />
+                </svg>
+            </div>
+            <!-- CSS Icon -->
+            <div class="float-icon i-css">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M5,3L4.35,6.34L11,8V5H5M13,5V8L19.65,6.34L19,3H13M5.15,7.34L6.11,12.16L11,13.5V10.5L5.15,7.34M13,10.5V13.5L17.89,12.16L18.85,7.34L13,10.5M6.4,13.58L7.11,17.1L11,18.15V15.12L6.4,13.58M13,15.12V18.15L16.89,17.1L17.6,13.58L13,15.12Z" />
+                </svg>
+            </div>
+            <!-- React Icon -->
+            <div class="float-icon i-react">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M11.6,13.4C12.37,13.4 13,12.77 13,12C13,11.23 12.37,10.6 11.6,10.6C10.83,10.6 10.2,11.23 10.2,12C10.2,12.77 10.83,13.4 11.6,13.4M21.6,12C21.6,12.77 20,13.79 17.5,14.65C17.31,14.71 17.1,14.77 16.9,14.83L17.33,15.57C17.47,15.81 17.6,16.05 17.72,16.29C19.38,16.14 20.89,15.5 21.6,14.33C21.84,13.93 22,13.5 22,13C22,10.8 17.84,9 12.7,9C12.5,9 12.31,9 12.11,9.03C12.6,9.26 13,9.6 13.34,10C17.79,10.15 21.6,11 21.6,12M2,12C2,12.77 3.6,13.79 6.1,14.65C6.29,14.71 6.5,14.77 6.7,14.83L6.27,15.57C6.13,15.81 6,16.05 5.88,16.29C4.22,16.14 2.71,15.5 2,14.33C1.76,13.93 1.6,13.5 1.6,13C1.6,10.8 5.76,9 10.9,9C11.1,9 11.29,9 11.49,9.03C11,9.26 10.6,9.6 10.26,10C5.81,10.15 2,11 2,12M11.6,18.4C10.83,18.4 10.2,17.77 10.2,17C10.2,16.23 10.83,15.6 11.6,15.6C12.37,15.6 13,16.23 13,17C13,17.77 12.37,18.4 11.6,18.4M12,4.4C12.77,4.4 13.79,6 14.65,8.5C14.71,8.69 14.77,8.9 14.83,9.1L15.57,8.67C15.81,8.53 16.05,8.4 16.29,8.28C16.14,6.62 15.5,5.11 14.33,4.4C13.93,4.16 13.5,4 13,4C10.8,4 9,8.16 9,13.3C9,13.5 9,13.69 9.03,13.89C9.26,13.4 9.6,13 10,12.66C10.15,8.21 11,4.4 12,4.4M12,19.6C11.23,19.6 10.21,18 9.35,15.5C9.29,15.31 9.23,15.1 9.17,14.9L8.43,15.33C8.19,15.47 7.95,15.6 7.71,15.72C7.86,17.38 8.5,18.89 9.67,19.6C10.07,19.84 10.5,20 11,20C13.2,20 15,15.84 15,10.7C15,10.5 15,10.31 14.97,10.11C14.74,10.6 14.4,11 14,11.34C13.85,15.79 13,19.6 12,19.6Z" />
+                </svg>
+            </div>
+            <!-- Database Icon -->
+            <div class="float-icon i-db">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M12,3C7.58,3 4,4.79 4,7C4,9.21 7.58,11 12,11C16.42,11 20,9.21 20,7C20,4.79 16.42,3 12,3M4,9V12C4,14.21 7.58,16 12,16C16.42,16 20,14.21 20,12V9C20,11.21 16.42,13 12,13C7.58,13 4,11.21 4,9M4,14V17C4,19.21 7.58,21 12,21C16.42,21 20,19.21 20,17V14C20,16.21 16.42,18 12,18C7.58,18 4,16.21 4,14Z" />
+                </svg>
+            </div>
+        </div>
+        <div class="pentagon-container">
+            <div class="pentagon">
+                <div class="side s1"></div>
+                <div class="side s2"></div>
+                <div class="side s3"></div>
+                <div class="side s4"></div>
+                <div class="side s5"></div>
+            </div>
         </div>
     </div>
-</div>
 
-<!-- Opening Animation Overlay -->
-<div class="splash-screen" id="splashScreen">
-    <div class="splash-content">
-        <h1 class="splash-text">Hi I am Karthik</h1>
-    </div>
-</div>
-
-<script>
-    // Check if the user just refreshed the page
-    const navEntries = performance.getEntriesByType("navigation");
-    const isReload = navEntries.length > 0 && navEntries[0].type === "reload";
-
-    if (!sessionStorage.getItem('splashShown') || isReload) {
-        // First time visit or refresh: play the animation
-        sessionStorage.setItem('splashShown', 'true');
-    } else {
-        // Navigating via links: hide the splash screen immediately
-        const splash = document.getElementById('splashScreen');
-        if (splash) splash.style.display = 'none';
-        document.body.style.animation = 'none';
-        document.body.style.overflow = 'visible';
-    }
-</script>
-
-<header>
-
-    <nav>
-        <div class="navdiv">
-        <div class="title-container"><div class="heading"><span class="nav-typing">My Portfolio</span></div></div>
-         <div class="links"><a href="#home"><p><img src="/images/home_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg"></p></a>
-        <a href="#about"><p><img src="/images/data_loss_prevention_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg"></p></a>
-        <a href="#contact"><p><img src="/images/contacts_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg"></p></a>
-    </div>
-
+    <!-- Opening Animation Overlay -->
+    <div class="splash-screen" id="splashScreen">
+        <div class="splash-content">
+            <h1 class="splash-text">Hi I am Karthik</h1>
         </div>
-    </nav>
-</header>
+    </div>
 
-<main>
-    
+    <script>
+        // Check if the user just refreshed the page
+        const navEntries = performance.getEntriesByType("navigation");
+        const isReload = navEntries.length > 0 && navEntries[0].type === "reload";
+
+        if (!sessionStorage.getItem('splashShown') || isReload) {
+            // First time visit or refresh: play the animation
+            sessionStorage.setItem('splashShown', 'true');
+        } else {
+            // Navigating via links: hide the splash screen immediately
+            const splash = document.getElementById('splashScreen');
+            if (splash) splash.style.display = 'none';
+            document.body.style.animation = 'none';
+            document.body.style.overflow = 'visible';
+        }
+    </script>
+
+    <header>
+
+        <nav>
+            <div class="navdiv">
+                <div class="title-container">
+                    <div class="heading"><span class="nav-typing">My Portfolio</span></div>
+                </div>
+                <div class="links"><a href="#home">
+                        <p><img src="/images/home_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg"></p>
+                    </a>
+                    <a href="#about">
+                        <p><img src="/images/data_loss_prevention_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg"></p>
+                    </a>
+                    <a href="#contact">
+                        <p><img src="/images/contacts_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg"></p>
+                    </a>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+
+    <main>
