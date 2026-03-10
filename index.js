@@ -78,9 +78,11 @@ app.post("/submit", async (req, res) => {
       console.log("✅ Both emails sent successfully");
     } catch (mailError) {
       console.error("❌ Email sending failed:", mailError);
-      // We still want to return success if the DB insert worked? 
-      // Actually, we don't have a DB anymore. So if email fails, it's a failure.
-      throw mailError; 
+      return res.status(500).json({ 
+        success: false, 
+        message: "Email delivery failed. Please check your credentials.",
+        error: mailError.message 
+      });
     }
 
     // ✅ Return JSON success ONLY after emails are sent
@@ -89,7 +91,11 @@ app.post("/submit", async (req, res) => {
   } catch (err) {
     console.error("Error occurred during submission:", err);
     if (!res.headersSent) {
-      res.status(500).send("An error occurred while submitting your message.");
+      res.status(500).json({ 
+        success: false, 
+        message: "An internal error occurred.",
+        error: err.message
+      });
     }
   }
 });
