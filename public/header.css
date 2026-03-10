@@ -138,6 +138,9 @@ section {
     opacity: 0;
     transform: translateY(30px);
     transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .reveal .homecontent, .reveal .feedback {
@@ -176,7 +179,7 @@ input, textarea {
     width: 100%;
     max-width: 450px;
     padding: 16px 24px;
-    margin: 12px 0;
+    margin: 8px 0;
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 18px;
@@ -186,6 +189,7 @@ input, textarea {
     transition: var(--transition-premium);
     outline: none;
     text-align: center;
+    resize: none;
 }
 
 input:focus, textarea:focus {
@@ -195,7 +199,7 @@ input:focus, textarea:focus {
 }
 
 button {
-    margin-top: 20px;
+    margin-top: 30px;
     padding: 14px 40px;
     border-radius: 18px;
     border: none;
