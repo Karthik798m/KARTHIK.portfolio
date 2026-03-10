@@ -54,8 +54,9 @@ app.post("/submit", async (req, res) => {
     });
 
     const mailOptions = {
-      from: mail,
+      from: process.env.EMAIL_USER, // Must match authenticated user
       to: process.env.EMAIL_USER,
+      replyTo: mail, // So you can click reply to the actual sender
       subject: "Enquiery from your portfolio page",
       text: `You got a new message from ${name} (${mail}):\n\n${cont}`
     };

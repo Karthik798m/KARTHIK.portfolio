@@ -161,11 +161,17 @@
               formStatus.style.display = 'none';
             }, 5000);
           } else {
-            alert("Something went wrong. Please try again later.");
+            // Try to get the specific error message from the server
+            try {
+              const errorData = await response.json();
+              alert(`Error: ${errorData.message}\nDetails: ${errorData.error || 'Unknown'}`);
+            } catch (jsonErr) {
+              alert("Something went wrong on the server. Please check your Vercel logs.");
+            }
           }
         } catch (error) {
           console.error("Form error:", error);
-          alert("Could not reach the server.");
+          alert("Could not reach the server. Please check your internet connection.");
         } finally {
           submitBtn.textContent = originalBtnText;
           submitBtn.disabled = false;
