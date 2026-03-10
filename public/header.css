@@ -93,7 +93,7 @@ body::before, body::after {
     right: 0;
     height: 20vh;
     pointer-events: none;
-    z-index: 1001; /* Above almost everything but below splash? */
+    z-index: 999; /* Below navbar (1000) but above content */
 }
 
 body::before {
