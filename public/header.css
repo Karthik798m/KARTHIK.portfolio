@@ -213,25 +213,27 @@ button:hover {
 /* Mobile Polish */
 @media (max-width: 768px) {
     .navdiv {
-        width: 85%;
-        padding: 15px;
-        flex-direction: column;
-        gap: 15px;
-        border-radius: 30px;
+        width: 90%;
+        padding: 12px 20px;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 0;
+        border-radius: 24px;
     }
 
     .title-container {
-        text-align: center;
+        text-align: left;
+        flex: 1;
     }
 
     .heading {
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
 
     .links {
-        width: 100%;
-        justify-content: center;
-        gap: 30px;
+        width: auto;
+        justify-content: flex-end;
+        gap: 15px;
     }
 
     .welcome-text {
