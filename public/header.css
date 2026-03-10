@@ -163,6 +163,7 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 15px; /* Unified vertical gap */
 }
 
 .section-title {
@@ -226,9 +227,9 @@ section {
 
 input, textarea {
     width: 100%;
-    max-width: 450px;
+    max-width: 500px; /* Matched with input-group */
     padding: 16px 24px;
-    margin: 8px 0;
+    margin: 0; /* Let gap handle spacing */
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 18px;
@@ -239,6 +240,7 @@ input, textarea {
     outline: none;
     text-align: center;
     resize: none;
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
 }
 
 input:focus, textarea:focus {
@@ -248,7 +250,7 @@ input:focus, textarea:focus {
 }
 
 button {
-    margin-top: 30px;
+    margin-top: 15px; /* Adjusted since gap is 15px */
     padding: 14px 40px;
     border-radius: 18px;
     border: none;
@@ -307,7 +309,7 @@ button:hover {
 
     .input-group {
         flex-direction: column;
-        gap: 0;
+        gap: 15px; /* Vertical gap for mobile */
     }
 
     .section-title {
