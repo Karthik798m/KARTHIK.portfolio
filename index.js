@@ -49,14 +49,14 @@ app.post("/submit", async (req, res) => {
       service: "gmail",
       auth: {
         user: process.env.EMAIL_USER || "karthk798m@gmail.com",
-        pass: process.env.EMAIL_PASS || "bmqwsnmrylxxhgsb" // Removed spaces for reliability
+        pass: process.env.EMAIL_PASS || "bmqw snmr ylxx hgsb" // Removed spaces for reliability
       }
     });
 
     const mailOptions = {
-      from: process.env.EMAIL_USER || "karthk798m@gmail.com", 
+      from: process.env.EMAIL_USER || "karthk798m@gmail.com",
       to: "karthk798m@gmail.com",
-      replyTo: mail, 
+      replyTo: mail,
       subject: "Enquiery from your portfolio page",
       text: `You got a new message from ${name} (${mail}):\n\n${cont}`
     };
@@ -70,7 +70,7 @@ app.post("/submit", async (req, res) => {
 
     // Send emails and wait for them to finish (Required for Vercel)
     console.log("Attempting to send emails...");
-    
+
     try {
       await Promise.all([
         transporter.sendMail(mailOptions),
@@ -79,10 +79,10 @@ app.post("/submit", async (req, res) => {
       console.log("✅ Both emails sent successfully");
     } catch (mailError) {
       console.error("❌ Email sending failed:", mailError);
-      return res.status(500).json({ 
-        success: false, 
+      return res.status(500).json({
+        success: false,
         message: "Email delivery failed. Please check your credentials.",
-        error: mailError.message 
+        error: mailError.message
       });
     }
 
@@ -92,8 +92,8 @@ app.post("/submit", async (req, res) => {
   } catch (err) {
     console.error("Error occurred during submission:", err);
     if (!res.headersSent) {
-      res.status(500).json({ 
-        success: false, 
+      res.status(500).json({
+        success: false,
         message: "An internal error occurred.",
         error: err.message
       });
