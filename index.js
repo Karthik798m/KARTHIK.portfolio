@@ -61,7 +61,7 @@ app.post("/submit", async (req, res) => {
     };
 
     const mailOptions2 = {
-      from: "smithakp4@gmail.com",  // sender (user’s email from form)
+      from: process.env.EMAIL_USER,  // Must match the authenticated user
       to: mail, // sending thank you to the user's email
       subject: "Thanks",
       text: `Thank you for visiting my portfolio ${name} `
