@@ -124,12 +124,13 @@ body {
 
 .float-icon {
     position: absolute;
-    width: 60px;
-    height: 60px;
-    opacity: 0.6;
-    filter: drop-shadow(0 0 20px var(--accent-blue)) drop-shadow(0 0 5px var(--accent-light-blue));
+    width: 65px;
+    height: 65px;
+    opacity: 0.9;
+    filter: drop-shadow(0 0 10px var(--accent-blue)) brightness(1.2) contrast(1.2);
     animation: drift 15s ease-in-out infinite alternate;
-    color: var(--accent-light-blue);
+    color: #fff;
+    /* White for maximum sharpness and visibility */
     transition: var(--transition-premium);
 }
 
