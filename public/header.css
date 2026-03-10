@@ -42,7 +42,7 @@ body {
     perspective: 1500px;
     overflow: hidden;
     pointer-events: none;
-    opacity: 0.3;
+    opacity: 0.7; /* Increased opacity from 0.3 */
 }
 
 .pentagon-container {
@@ -65,9 +65,9 @@ body {
 .side {
     position: absolute;
     width: 235px; /* Side length for a pentagon in a 400x400 box */
-    height: 2px;
+    height: 4px; /* Thickened from 2px */
     background: var(--accent-light-blue);
-    box-shadow: 0 0 15px var(--accent-blue);
+    box-shadow: 0 0 25px var(--accent-blue); /* Stronger glow */
     top: 50%;
     left: 50%;
     transform-origin: 0% 50%;
@@ -98,12 +98,12 @@ body::before, body::after {
 
 body::before {
     top: 0;
-    background: radial-gradient(ellipse at 50% 0%, rgba(0, 113, 227, 0.2) 0%, transparent 80%);
+    background: radial-gradient(ellipse at 50% 0%, rgba(0, 113, 227, 0.4) 0%, transparent 85%);
 }
 
 body::after {
     bottom: 0;
-    background: radial-gradient(ellipse at 50% 100%, rgba(0, 113, 227, 0.2) 0%, transparent 80%);
+    background: radial-gradient(ellipse at 50% 100%, rgba(0, 113, 227, 0.4) 0%, transparent 85%);
 }
 
 /* Elegant Navbar */
