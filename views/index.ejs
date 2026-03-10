@@ -28,10 +28,14 @@
 <section id="contact">
   <form id="contactForm">
       <div class="feedback">
+        <h2 class="section-title">Get in Touch</h2>
+        <p class="section-subtitle">Have a project in mind? Let's build something amazing together.</p>
         <div id="formStatus" class="success-message" style="display: none;">✅ Message sent successfully!</div>
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="text" name="email" placeholder="@Email" required>
-        <textarea name="content" placeholder="Your Message" class="content" required rows="4"></textarea>
+        <div class="input-group">
+            <input type="text" name="name" placeholder="Full Name" required>
+            <input type="text" name="email" placeholder="Email Address" required>
+        </div>
+        <textarea name="content" placeholder="Tell me about your project..." class="content" required rows="4"></textarea>
         <button type="submit" class="submit">Send Message</button>
       </div>
   </form>

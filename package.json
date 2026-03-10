@@ -1,9 +1,11 @@
 {
   "dependencies": {
     "body-parser": "^2.2.0",
+    "compression": "^1.8.1",
     "dotenv": "^17.3.1",
     "ejs": "^3.1.10",
     "express": "^5.2.1",
+    "helmet": "^8.1.0",
     "nodemailer": "^7.0.13"
   },
   "name": "porfolio",
