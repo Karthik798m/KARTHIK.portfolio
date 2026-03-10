@@ -48,14 +48,14 @@ app.post("/submit", async (req, res) => {
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: process.env.EMAIL_USER || "karthk798m@gmail.com",
+        user: process.env.EMAIL_USER || "karthiksecond96@gmail.com",
         pass: process.env.EMAIL_PASS || "bmqw snmr ylxx hgsb" // Removed spaces for reliability
       }
     });
 
     const mailOptions = {
-      from: process.env.EMAIL_USER || "karthk798m@gmail.com",
-      to: "karthk798m@gmail.com",
+      from: process.env.EMAIL_USER || "karthiksecond96@gmail.com",
+      to: "karthiksecond96@gmail.com",
       replyTo: mail,
       subject: "Enquiery from your portfolio page",
       text: `You got a new message from ${name} (${mail}):\n\n${cont}`
