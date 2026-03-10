@@ -67,18 +67,24 @@ app.post("/submit", async (req, res) => {
       text: `Thank you for visiting my portfolio ${name} `
     };
 
-    // ✅ Return JSON success so the page doesn't reload
+    // Send emails and wait for them to finish (Required for Vercel)
+    console.log("Attempting to send emails...");
+    
+    try {
+      await Promise.all([
+        transporter.sendMail(mailOptions),
+        transporter.sendMail(mailOptions2)
+      ]);
+      console.log("✅ Both emails sent successfully");
+    } catch (mailError) {
+      console.error("❌ Email sending failed:", mailError);
+      // We still want to return success if the DB insert worked? 
+      // Actually, we don't have a DB anymore. So if email fails, it's a failure.
+      throw mailError; 
+    }
+
+    // ✅ Return JSON success ONLY after emails are sent
     res.json({ success: true });
-
-    // Send emails in the background (non-blocking)
-    console.log("Attempting to send emails in background...");
-    transporter.sendMail(mailOptions)
-      .then(() => console.log("✅ Email sent to owner"))
-      .catch(err => console.error("❌ Failed to send owner email:", err));
-
-    transporter.sendMail(mailOptions2)
-      .then(() => console.log("✅ Email sent to user"))
-      .catch(err => console.error("❌ Failed to send user email:", err));
 
   } catch (err) {
     console.error("Error occurred during submission:", err);
