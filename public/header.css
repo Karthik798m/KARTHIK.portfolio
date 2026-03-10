@@ -34,26 +34,26 @@ body {
     justify-content: space-between;
     align-items: center;
     background: var(--nav-bg);
-    backdrop-filter: blur(20px); /* Higher blur for sleekness */
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.05); /* Thinner, more subtle border */
-    padding: 6px 25px; /* Ultra-thin padding */
-    width: 85%; /* Slightly narrower for sleeker look */
-    max-width: 900px; 
-    border-radius: 50px; /* Fully rounded "pill" */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid var(--glass-border);
+    padding: 12px 30px;
+    width: 90%;
+    max-width: 1000px;
+    border-radius: 24px;
     position: fixed;
-    top: 15px; /* Closer to top */
+    top: 20px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1000;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--glass-shadow);
     transition: var(--transition-premium);
     animation: slideDownNav 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     opacity: 0;
 }
 
 @keyframes slideDownNav {
-    from { opacity: 0; transform: translateX(-50%) translateY(-15px); }
+    from { opacity: 0; transform: translateX(-50%) translateY(-20px); }
     to { opacity: 1; transform: translateX(-50%) translateY(0); }
 }
 
@@ -62,8 +62,8 @@ body {
 }
 
 .heading {
-    font-size: 0.95rem; /* Sleeker, smaller text */
-    font-weight: 600;
+    font-size: 1.2rem;
+    font-weight: 700;
     letter-spacing: 0.5px;
 }
 
@@ -72,50 +72,50 @@ body {
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    border-right: 1.5px solid var(--accent-light-blue);
+    border-right: 2px solid var(--accent-light-blue);
     white-space: nowrap;
     overflow: hidden;
     display: inline-block;
     animation: typing 2.5s steps(15, end), blink 0.75s step-end infinite;
 }
 
-@keyframes typing { from { width: 0 } to { width: 110px } }
+@keyframes typing { from { width: 0 } to { width: 140px } }
 @keyframes blink { from, to { border-color: transparent } 50% { border-color: var(--accent-light-blue) } }
 
 .links {
     display: flex;
-    gap: 18px; /* streamlined gap */
+    gap: 25px;
     align-items: center;
 }
 
 .links a {
     text-decoration: none;
     color: var(--text-primary);
-    opacity: 0.6;
+    opacity: 0.7;
     transition: var(--transition-premium);
     display: flex;
     align-items: center;
 }
 
 .links a img {
-    width: 18px; /* Sleeker icons */
-    height: 18px;
+    width: 22px;
+    height: 22px;
     transition: var(--transition-premium);
 }
 
 .links a:hover, .links a.active {
     opacity: 1;
-    transform: translateY(-1.5px);
+    transform: translateY(-2px);
 }
 
 .links a.active img {
-    filter: drop-shadow(0 0 6px var(--accent-blue));
+    filter: drop-shadow(0 0 8px var(--accent-blue));
 }
 
 /* Sections */
 section {
     min-height: 100vh;
-    padding: 70px 20px; /* Balanced for sleeker navbar */
+    padding: 100px 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -213,33 +213,25 @@ button:hover {
 /* Mobile Polish */
 @media (max-width: 768px) {
     .navdiv {
-        width: 90%; 
-        padding: 6px 15px; /* Sleeker mobile horizontal padding */
-        flex-direction: row; 
-        justify-content: space-between;
-        gap: 0;
-        border-radius: 50px;
-        top: 10px; /* Even tighter to top */
+        width: 85%;
+        padding: 15px;
+        flex-direction: column;
+        gap: 15px;
+        border-radius: 30px;
     }
 
     .title-container {
-        text-align: left;
-        flex: 1;
+        text-align: center;
     }
 
     .heading {
-        font-size: 0.85rem; /* Minimized text */
+        font-size: 1rem;
     }
 
     .links {
-        width: auto;
-        justify-content: flex-end;
-        gap: 12px; /* Sleeker spacing */
-    }
-
-    .links a img {
-        width: 16px; /* Ultra-sleek icons for mobile */
-        height: 16px;
+        width: 100%;
+        justify-content: center;
+        gap: 30px;
     }
 
     .welcome-text {
