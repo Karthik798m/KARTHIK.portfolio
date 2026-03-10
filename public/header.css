@@ -126,8 +126,8 @@ body {
     position: absolute;
     width: 60px;
     height: 60px;
-    opacity: 0.35;
-    filter: drop-shadow(0 0 15px var(--accent-blue));
+    opacity: 0.6;
+    filter: drop-shadow(0 0 20px var(--accent-blue)) drop-shadow(0 0 5px var(--accent-light-blue));
     animation: drift 15s ease-in-out infinite alternate;
     color: var(--accent-light-blue);
     transition: var(--transition-premium);
