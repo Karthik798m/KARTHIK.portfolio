@@ -100,8 +100,7 @@ body::before, body::after {
 }
 
 body::before {
-    top: 0;
-    background: radial-gradient(ellipse at 50% 0%, rgba(0, 113, 227, 0.3) 0%, transparent 75%);
+    display: none;
 }
 
 body::after {
@@ -127,7 +126,7 @@ body::after {
     left: 50%;
     transform: translateX(-50%);
     z-index: 1000;
-    box-shadow: var(--glass-shadow);
+    box-shadow: 0 4px 32px rgba(0, 113, 227, 0.2), var(--glass-shadow);
     transition: var(--transition-premium);
     animation: slideDownNav 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     opacity: 0;
