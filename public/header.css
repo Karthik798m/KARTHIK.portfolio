@@ -106,7 +106,7 @@ body::before {
 
 body::after {
     bottom: 0;
-    background: radial-gradient(ellipse at 50% 100%, rgba(0, 113, 227, 0.6) 0%, transparent 90%);
+    background: radial-gradient(ellipse at 50% 100%, rgba(0, 113, 227, 0.3) 0%, transparent 75%);
 }
 
 /* Elegant Navbar */
