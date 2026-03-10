@@ -27,6 +27,28 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    position: relative;
+}
+
+/* Overscroll Glow Effects */
+body::before, body::after {
+    content: '';
+    position: fixed;
+    left: 0;
+    right: 0;
+    height: 15vh;
+    pointer-events: none;
+    z-index: 999;
+}
+
+body::before {
+    top: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(0, 113, 227, 0.15) 0%, transparent 75%);
+}
+
+body::after {
+    bottom: 0;
+    background: radial-gradient(ellipse at 50% 100%, rgba(0, 113, 227, 0.15) 0%, transparent 75%);
 }
 
 /* Elegant Navbar */
